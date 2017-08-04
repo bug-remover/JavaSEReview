@@ -3,10 +3,8 @@ package com.qzj.reflect;
 import java.lang.reflect.Field;
 
 /**
- *
- public Field getDeclaredField(String name) // 获得该类自身声明的所有变量，不包括其父类的变量
- public Field getField(String name) // 获得该类自所有的public成员变量，包括其父类变量
-
+ * public Field getDeclaredField(String name) // 获得该类自身声明的所有变量，不包括其父类的变量
+ * public Field getField(String name) // 获得该类自所有的public成员变量，包括其父类变量
  */
 public class ReflectDemo3 {
 
@@ -25,8 +23,14 @@ public class ReflectDemo3 {
         Object o = c.newInstance();
         field.setAccessible(true);//设置是否允许访问，因为该变量是private的，所以要手动设置允许访问，如果msg是public的就不需要这行了。
 
-        Object msg = field.get(o);
+        Object msg = field.get(o);//获取属性值
         System.out.println(msg);
+
+        Field[] fields = c.getDeclaredFields();//获取所有属性
+        for (Field field1 : fields) {
+            System.out.println(field1.getName());
+        }
+
     }
 
 }

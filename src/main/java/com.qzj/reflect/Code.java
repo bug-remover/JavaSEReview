@@ -11,7 +11,7 @@ public class Code {
 
     }
 
-    public Code(String id, String name) {
+    private Code(String id, String name) {
         this.id = id;
         this.name = name;
     }
